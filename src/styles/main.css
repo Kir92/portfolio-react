@@ -326,7 +326,7 @@ section {
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -473,7 +473,7 @@ section {
 
 .hobbies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -608,18 +608,18 @@ footer {
 /* ===== ТЕМНАЯ ТЕМА ===== */
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-color: #000000; /* ЧЕРНЫЙ ТЕКСТ */
-    --background-color: #7c65bb; /* СВЕТЛЫЙ ФОН ДЛЯ КОНТРАСТА */
+    --text-color: #000000;
+    --background-color: #7c65bb;
     --shadow-color: rgba(0, 0, 0, 0.1);
   }
 
   .welcome-content {
-    background: #ffffff; /* Белый фон для модального окна */
-    color: #000000; /* Черный текст в модальном окне */
+    background: #ffffff;
+    color: #000000;
   }
 
   .welcome-content h2 {
-    color: #6a11cb; /* Сохраняем фиолетовый для заголовка */
+    color: #6a11cb;
   }
 }
 
@@ -638,7 +638,7 @@ footer {
 
   .portfolio-grid,
   .hobbies-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
   }
 }
@@ -690,6 +690,11 @@ footer {
 
   .contact-container {
     flex-direction: column;
+  }
+
+  .portfolio-grid,
+  .hobbies-grid {
+    grid-template-columns: 1fr;
   }
 }
 
