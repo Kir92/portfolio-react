@@ -9,10 +9,12 @@ const Contact = () => {
 
     const formData = new FormData(e.target);
     const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
-
+    
+    // Получаем email и message для демонстрации, но не сохраняем в переменные
     // В реальном приложении здесь был бы API запрос
+    formData.get("email");
+    formData.get("message");
+
     // Имитация успешной отправки
     setFormMessage(
       `Спасибо, ${name}! Ваше сообщение отправлено. Я свяжусь с вами в ближайшее время.`,
@@ -30,44 +32,46 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section contact-section">
       <h2 className="section-title">Контакты</h2>
 
-      <div className="contact-container">
+      <div className="contact-container container">
         <div className="contact-info">
-          <p>
-            *Свяжитесь со мной для обсуждения вашего проекта или сотрудничества.
-            Я открыт к новым возможностям и интересным предложениям.
-          </p>
-          <p>_______________________________________________________________</p>
+          <div className="contact-items">
+            <p className="contact-intro">
+              *Свяжитесь со мной для обсуждения вашего проекта или сотрудничества.
+              Я открыт к новым возможностям и интересным предложениям.
+            </p>
+            <p className="contact-divider">_______________________________________________________________</p>
 
-          <div className="contact-item">
-            <div className="contact-icon">
-              <i className="fas fa-envelope"></i>
+            <div className="contact-item">
+              <div className="contact-icon">
+                <i className="fas fa-envelope"></i>
+              </div>
+              <div className="contact-details">
+                <h3>Email</h3>
+                <p id="email">kirillluchkin@icloud.com</p>
+              </div>
             </div>
-            <div>
-              <h3>Email</h3>
-              <p id="email">kirillluchkin@icloud.com</p>
-            </div>
-          </div>
 
-          <div className="contact-item">
-            <div className="contact-icon">
-              <i className="fas fa-phone"></i>
+            <div className="contact-item">
+              <div className="contact-icon">
+                <i className="fas fa-phone"></i>
+              </div>
+              <div className="contact-details">
+                <h3>Телефон</h3>
+                <p id="phone">+7 (920) 970-61-29</p>
+              </div>
             </div>
-            <div>
-              <h3>Телефон</h3>
-              <p id="phone">+7 (920) 970-61-29</p>
-            </div>
-          </div>
 
-          <div className="contact-item">
-            <div className="contact-icon">
-              <i className="fas fa-map-marker-alt"></i>
-            </div>
-            <div>
-              <h3>Локация</h3>
-              <p>Москва, Россия</p>
+            <div className="contact-item">
+              <div className="contact-icon">
+                <i className="fas fa-map-marker-alt"></i>
+              </div>
+              <div className="contact-details">
+                <h3>Локация</h3>
+                <p>Москва, Россия</p>
+              </div>
             </div>
           </div>
         </div>
@@ -116,10 +120,11 @@ const Contact = () => {
             <button type="submit" className="submit-btn">
               Отправить сообщение
             </button>
+            
             {formMessage && (
-              <p id="form-message" className={`form-message ${formStatus}`}>
+              <div className={`form-message ${formStatus}`}>
                 {formMessage}
-              </p>
+              </div>
             )}
           </form>
         </div>

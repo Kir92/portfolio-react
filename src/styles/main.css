@@ -413,34 +413,63 @@ section {
   justify-content: center;
   margin-right: var(--font-size-sm);
   color: var(--text-light);
+  flex-shrink: 0;
+}
+
+.contact-details {
+  flex: 1;
+}
+
+.contact-details h3 {
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.contact-details p {
+  color: var(--text-secondary);
+  line-height: 1.4;
 }
 
 .contact-form {
   flex: 1;
+  min-width: 0;
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .form-label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  color: var(--text-color);
+  font-weight: 500;
 }
 
 .form-input,
 .form-textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px 15px;
   border: 1px solid #ddd;
   border-radius: var(--border-radius-md);
   font-family: inherit;
   font-size: var(--font-size-sm);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
 }
 
 .form-textarea {
   resize: vertical;
   min-height: 120px;
+  line-height: 1.5;
 }
 
 /* Кнопка Отправить в контактах */
@@ -786,6 +815,16 @@ body.light-theme header {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-lg);
   }
+
+  /* Адаптация контактов для планшетов */
+  .contact-container {
+    gap: 2rem;
+  }
+
+  .contact-icon {
+    width: 45px;
+    height: 45px;
+  }
 }
 
 /* Большие мобильные (576px - 768px) */
@@ -833,8 +872,25 @@ body.light-theme header {
     font-size: var(--font-size-xs);
   }
 
+  /* Адаптация контактов для мобильных */
   .contact-container {
     flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100%;
+  }
+
+  .contact-item {
+    margin-bottom: 1.2rem;
+  }
+
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
   }
 
   .portfolio-grid,
@@ -901,15 +957,51 @@ body.light-theme header {
     gap: var(--spacing-md);
   }
 
+  /* Адаптация контактов для маленьких мобильных */
+  .contact-container {
+    gap: 2rem;
+  }
+
   .contact-item {
     flex-direction: column;
     text-align: center;
     gap: var(--spacing-sm);
+    margin-bottom: 1.5rem;
   }
 
   .contact-icon {
     margin-right: 0;
     margin-bottom: var(--spacing-sm);
+    width: 60px;
+    height: 60px;
+  }
+
+  .contact-details h3 {
+    font-size: 1.1rem;
+    margin-bottom: 3px;
+  }
+
+  .contact-details p {
+    font-size: 0.95rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .form-label {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+
+  .form-textarea {
+    min-height: 100px;
   }
 
   .social-links {
@@ -955,6 +1047,44 @@ body.light-theme header {
   html {
     padding: var(--spacing-xs);
   }
+
+  /* Адаптация контактов для очень маленьких экранов */
+  .contact-container {
+    gap: 1.5rem;
+  }
+
+  .contact-item {
+    gap: 8px;
+    margin-bottom: 1.2rem;
+  }
+
+  .contact-icon {
+    width: 55px;
+    height: 55px;
+  }
+
+  .contact-details h3 {
+    font-size: 1rem;
+  }
+
+  .contact-details p {
+    font-size: 0.9rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  .submit-btn {
+    padding: 10px 15px;
+    font-size: 0.95rem;
+  }
 }
 
 /* Очень маленькие экраны (до 360px) */
@@ -994,6 +1124,26 @@ body.light-theme header {
     font-size: 0.7rem;
   }
 
+  /* Адаптация контактов для экстремально маленьких экранов */
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .contact-details h3 {
+    font-size: 0.95rem;
+  }
+
+  .contact-details p {
+    font-size: 0.85rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 7px 9px;
+    font-size: 0.85rem;
+  }
+
   .details-btn,
   .view-project-btn,
   .view-hobby-btn,
@@ -1001,5 +1151,154 @@ body.light-theme header {
   .submit-btn {
     padding: 8px 16px;
     font-size: 0.9rem;
+  }
+}
+
+/* Добавляем поддержку ориентации ландшафт для мобильных */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Для контактов в ландшафтном режиме */
+  .contact-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .contact-info,
+  .contact-form {
+    flex: 1 1 300px;
+    min-width: 300px;
+  }
+
+  .contact-item {
+    margin-bottom: 1rem;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Поддержка для устройств с высокой плотностью пикселей */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .form-input,
+  .form-textarea {
+    border-width: 0.5px;
+  }
+}
+
+/* Поддержка для устройств с очень маленькой высотой экрана */
+@media (max-height: 600px) {
+  section {
+    padding: 2rem 0;
+  }
+
+  .contact-container {
+    gap: 1.5rem;
+  }
+
+  .form-textarea {
+    min-height: 80px;
+  }
+}
+/* Улучшенная адаптация для контактов */
+
+/* Для телефонов с вырезом (notch) */
+@media (max-width: 768px) and (orientation: portrait) {
+  .contact-container {
+    padding: 0 5px; /* Дополнительные отступы по бокам */
+  }
+}
+
+/* Улучшение для очень маленьких высот экрана */
+@media (max-height: 700px) {
+  .contact-section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .contact-item {
+    margin-bottom: 1rem !important;
+  }
+
+  .form-group {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* Улучшение доступности для людей с плохим зрением */
+@media (prefers-reduced-motion: reduce) {
+  .contact-icon,
+  .form-input,
+  .form-textarea,
+  .submit-btn {
+    transition: none !important;
+  }
+}
+
+/* Поддержка темной темы системного уровня */
+@media (prefers-color-scheme: dark) {
+  body:not(.light-theme):not(.dark-theme) .contact-details h3,
+  body:not(.light-theme):not(.dark-theme) .contact-details p {
+    color: #ffffff;
+  }
+
+  body:not(.light-theme):not(.dark-theme) .form-label {
+    color: #ffffff;
+  }
+
+  body:not(.light-theme):not(.dark-theme) .form-input,
+  body:not(.light-theme):not(.dark-theme) .form-textarea {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #ffffff;
+  }
+}
+
+/* Улучшение для устройств с тач-скрином */
+@media (hover: none) and (pointer: coarse) {
+  .form-input,
+  .form-textarea {
+    font-size: 16px !important; /* Предотвращает зум на iOS */
+  }
+
+  .submit-btn,
+  .contact-item {
+    min-height: 44px; /* Минимальный размер для касания */
+  }
+
+  .contact-icon {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* Улучшение для очень широких экранов */
+@media (min-width: 1400px) {
+  .contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* Адаптация для печати */
+@media print {
+  .contact-container {
+    display: block !important;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  .submit-btn {
+    display: none !important;
+  }
+
+  .contact-icon {
+    background: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
