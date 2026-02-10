@@ -5,9 +5,11 @@ import Header from './components/Header';
 import Navigation from './components/Navigation';
 import About from './components/About';
 import Portfolio from './components/Portfolio';
+import Hobbies from './components/Hobbies';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WelcomeModal from './components/WelcomeModal';
+
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
@@ -25,6 +27,7 @@ function App() {
       <main className="container">
         {activeSection === 'about' && <About />}
         {activeSection === 'portfolio' && <Portfolio />}
+        {activeSection === 'hobbies' && <Hobbies />}
         {activeSection === 'contact' && <Contact />}
       </main>
       

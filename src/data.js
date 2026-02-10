@@ -5,42 +5,42 @@ export const portfolioItems = [
     title: "Интернет-магазин",
     description: "Полнофункциональный интернет-магазин с корзиной товаров и системой оплаты",
     category: "web",
-    image: "/image/projectImage/интернет-магазин.jpg",
+    image: `${process.env.PUBLIC_URL}/image/projectImage/internet-magazin.jpg`,
   },
   {
     id: 2,
     title: "Мобильное приложение",
     description: "Приложение Focus Tracker для концентрации и отслеживания задачи",
     category: "mobile",
-    image: "/image/projectImage/фокус.jpg",
+    image: `${process.env.PUBLIC_URL}/image/projectImage/focus.jpg`,
   },
   {
     id: 3,
     title: "Корпоративный сайт",
     description: "Современный корпоративный сайт с адаптивным дизайном и интерактивными элементами",
     category: "web",
-    image: "/image/projectImage/сайт.jpg",
+    image: `${process.env.PUBLIC_URL}/image/projectImage/site.jpg`,
   },
   {
     id: 4,
     title: "UI/Дизайн системы",
     description: "Дизайн система для крупного финансового приложения",
     category: "design",
-    image: "/image/projectImage/лендинг.jpg",
+    image: `${process.env.PUBLIC_URL}/image/projectImage/landing.jpg`,
   },
   {
     id: 5,
     title: "Платформа для обучения",
     description: "Онлайн-платформа с видеоуроками, тестами и системой прогресса",
     category: "web",
-    image: "/image/projectImage/в разработке.jpg",
+    image: `${process.env.PUBLIC_URL}/image/projectImage/in-development.jpg`,
   },
   {
     id: 6,
     title: "Web - игра",
     description: "Web приложение/игра Морской бой",
     category: "mobile",
-    image: "/image/projectImage/морской-бой.jpg",
+    image: `${process.env.PUBLIC_URL}/image/projectImage/sea-battle.jpg`,
   },
 ];
 
@@ -51,60 +51,60 @@ export const hobbiesItems = [
     title: "Пауэрлифтинг",
     description: "1 разряд по троеборью: становая тяга, жим, присед",
     category: "sport",
-    image: "/image/hobbyImage/sport.jpg",
+    image: `${process.env.PUBLIC_URL}/image/hobbyImage/sport.jpg`,
   },
   {
     id: 2,
     title: "PC Gaming",
     description: "В свободное от всех дел время играю в Heroes Might and magic HoTA, WOT, Dota, La2.",
     category: "games",
-    image: "/image/hobbyImage/dota.jpg",
+    image: `${process.env.PUBLIC_URL}/image/hobbyImage/dota.jpg`,
   },
   {
     id: 3,
     title: "Дайвинг",
     description: "В путешествиях увлекаюсь дайвингом и снорклингом.",
     category: "creative",
-    image: "/image/hobbyImage/travel.jpg",
+    image: `${process.env.PUBLIC_URL}/image/hobbyImage/travel.jpg`,
   },
   {
     id: 4,
     title: "Игра на музыкальных инструментах",
     description: "Играю на гитаре и ф-но. Занимаюсь вокалом.",
     category: "music",
-    image: "/image/hobbyImage/music.jpg",
+    image: `${process.env.PUBLIC_URL}/image/hobbyImage/music.jpg`,
   },
   {
     id: 5,
     title: "Вольная борьба",
     description: "Занимаюсь в секции вольная борьба. Отличный способ поддерживать форму.",
     category: "sport",
-    image: "/image/hobbyImage/борьба.jpg",
+    image: `${process.env.PUBLIC_URL}/image/hobbyImage/wrestling.jpg`,
   },
   {
     id: 6,
     title: "Настольные игры",
     description: "Коллекционирую и играю в настольные игры с друзьями.",
     category: "games",
-    image: "/image/hobbyImage/kart.jpg",
+    image: `${process.env.PUBLIC_URL}/image/hobbyImage/cards.jpg`,
   },
   {
     id: 7,
     title: "Путешествия",
     description: "Исследую самые красивые и отдаленные места планеты.",
     category: "creative",
-    image: "/image/hobbyImage/travel2.jpg",
+    image: `${process.env.PUBLIC_URL}/image/hobbyImage/travel2.jpg`,
   },
   {
     id: 8,
     title: "Просмотр кино",
     description: "Увлекаюсь всеми видами кинематографа. Триллер и фанстастика в приоритете",
     category: "music",
-    image: "/image/hobbyImage/triller.jpg",
+    image: `${process.env.PUBLIC_URL}/image/hobbyImage/thriller.jpg`,
   },
 ];
 
-// Данные для статистики
+// Данные для статистики (без изменений)
 export const statsData = [
   { label: "Завершенных проектов", value: 24 },
   { label: "Довольных клиентов", value: 18 },
@@ -112,7 +112,7 @@ export const statsData = [
   { label: "Технологий освоено", value: 12 },
 ];
 
-// Навыки
+// Навыки (без изменений)
 export const skills = [
   "Next.js 15+",
   "React Server Components",

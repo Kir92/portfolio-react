@@ -2,6 +2,7 @@ const Navigation = ({ onNavClick, activeSection }) => {
   const sections = [
     { id: 'about', label: 'Обо мне' },
     { id: 'portfolio', label: 'Портфолио' },
+      { id: 'hobbies', label: 'Увлечения' },
     { id: 'contact', label: 'Контакты' },
   ];
 
