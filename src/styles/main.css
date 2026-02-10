@@ -12,16 +12,8 @@
   --shadow-color: rgba(0, 0, 0, 0.1);
 
   /* Градиенты */
-  --gradient-primary: linear-gradient(
-    135deg,
-    var(--primary-color) 0%,
-    var(--accent-color) 100%
-  );
-  --gradient-secondary: linear-gradient(
-    to right,
-    var(--primary-color),
-    var(--secondary-color)
-  );
+  --gradient-primary: linear-gradient(135deg, #6a11cb 0%, #9ba5b6 100%);
+  --gradient-secondary: linear-gradient(to right, #6a11cb, #2575fc);
   --gradient-hover: linear-gradient(to right, #ff0000, #ff4444);
 
   /* Отступы и размеры */
@@ -97,10 +89,9 @@ body {
 
 /* ===== ШАПКА ===== */
 header {
-  background: var(--gradient-primary);
-  color: var(--text-light);
   padding: 2rem 0;
   text-align: center;
+  position: relative;
 }
 
 .profile-img {
@@ -605,21 +596,159 @@ footer {
   box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
 }
 
-/* ===== ТЕМНАЯ ТЕМА ===== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #000000;
-    --background-color: #7c65bb;
-    --shadow-color: rgba(0, 0, 0, 0.1);
+/* ===== ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ ===== */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--gradient-secondary);
+  color: var(--text-light);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+  z-index: 10;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.theme-toggle i {
+  font-size: 1.1rem;
+}
+
+/* ===== СТИЛИ ДЛЯ ТЕМНОЙ ТЕМЫ ===== */
+body.dark-theme {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+  border-color: #333333 !important;
+}
+
+body.dark-theme .container {
+  color: #ffffff;
+}
+
+body.dark-theme .about-text,
+body.dark-theme .about-stats {
+  background:
+    linear-gradient(#1e1e1e, #1e1e1e) padding-box,
+    linear-gradient(135deg, #8a2be2, #4a5568) border-box !important;
+  color: #ffffff;
+}
+
+body.dark-theme .skills-title {
+  color: #ffffff;
+}
+
+body.dark-theme .section-title {
+  color: #ffffff;
+}
+
+body.dark-theme .section-title:after {
+  background: linear-gradient(to right, #8a2be2, #4dabf7) !important;
+}
+
+body.dark-theme .portfolio-item,
+body.dark-theme .hobbies-item {
+  background-color: #1e1e1e !important;
+  color: #ffffff;
+}
+
+body.dark-theme .portfolio-info h3,
+body.dark-theme .hobbies-info h3 {
+  color: #ffffff;
+}
+
+body.dark-theme .portfolio-info p,
+body.dark-theme .hobbies-info p {
+  color: #cccccc;
+}
+
+body.dark-theme .filter-btn,
+body.dark-theme .hobby-filter-btn {
+  background-color: #444 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .filter-btn.active,
+body.dark-theme .filter-btn:hover,
+body.dark-theme .hobby-filter-btn.active,
+body.dark-theme .hobby-filter-btn:hover {
+  background: linear-gradient(to right, #8a2be2, #4dabf7) !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .contact-info p {
+  color: #ffffff;
+}
+
+body.dark-theme .contact-item h3 {
+  color: #ffffff;
+}
+
+body.dark-theme .contact-item p {
+  color: #cccccc;
+}
+
+body.dark-theme .form-input,
+body.dark-theme .form-textarea {
+  background-color: #2d2d2d !important;
+  border-color: #444 !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .form-label {
+  color: #ffffff;
+}
+
+body.dark-theme footer {
+  background-color: #1e1e1e !important;
+}
+
+body.dark-theme .skill-tag {
+  background: linear-gradient(to right, #8a2be2, #4dabf7) !important;
+}
+
+
+
+/* ===== СТИЛИ ДЛЯ СВЕТЛОЙ ТЕМЫ ===== */
+body.light-theme {
+  background-color: #8944d3 !important;
+  color: #030303 !important;
+  border-color: #080808 !important;
+}
+
+body.light-theme .skill-tag {
+  background: linear-gradient(to right, #6a11cb, #2575fc) !important;
+}
+
+/* HEADER В СВЕТЛОЙ ТЕМЕ */
+body.light-theme header {
+  background: linear-gradient(135deg, #6a11cb 0%, #9ba5b6 100%) !important;
+  color: #ffffff !important;
+}
+
+/* Адаптивность переключателя темы */
+@media (max-width: 768px) {
+  .theme-toggle {
+    padding: 6px 12px;
+    font-size: 0.8rem;
   }
 
-  .welcome-content {
-    background: #ffffff;
-    color: #000000;
+  .theme-toggle span {
+    display: none;
   }
 
-  .welcome-content h2 {
-    color: #6a11cb;
+  .theme-toggle i {
+    font-size: 1.2rem;
   }
 }
 
